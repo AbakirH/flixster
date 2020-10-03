@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3e-DI-UBc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHr-hp-At9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ec8-13-TYw">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1V1-zd-ltT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController id="iHr-hp-At9" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jgf-c2-RhV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="g3e-DI-UBc" kind="relationship" relationship="viewControllers" id="MRD-An-ofM"/>
+                        <segue destination="HjE-aA-8fK" kind="relationship" relationship="viewControllers" id="rdv-QN-xAG"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="638" y="-688"/>
+        </scene>
+        <!--Superhero-->
+        <scene sceneID="zEg-57-saZ">
+            <objects>
+                <viewController id="HDE-HL-o0Q" customClass="MovieGridViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tak-Vl-aYE" customClass="MovieGrid">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="t0A-Dt-dhk"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Superhero" id="mWq-6C-t64"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UdU-1U-7nd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1154" y="769"/>
+        </scene>
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +75,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo5-BO-8lS">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo5-BO-8lS">
                                                     <rect key="frame" x="259" y="14" width="113" height="141"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -51,6 +85,7 @@
                                             <outlet property="posterView" destination="fo5-BO-8lS" id="849-eV-j5F"/>
                                             <outlet property="synopsisLabel" destination="8ne-x7-kcm" id="5VA-yu-vMv"/>
                                             <outlet property="titleLabel" destination="cK0-qn-4S4" id="Nhp-ht-m8e"/>
+                                            <segue destination="JGg-lb-NIz" kind="show" id="6Et-2N-Ryo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -59,19 +94,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="r09-p4-mv7"/>
+                    <navigationItem key="navigationItem" title="Movies" id="r09-p4-mv7"/>
                     <connections>
                         <outlet property="moviesTableView" destination="Lj8-AQ-9rx" id="0wz-Xt-rc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.072463768116" y="37.5"/>
+            <point key="canvasLocation" x="145" y="770"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NowPlaying-->
         <scene sceneID="6Ua-Kt-88A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g3e-DI-UBc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="NowPlaying" image="now_playing_tabbar_item" id="BIf-aO-6QN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CqU-bE-igb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -86,5 +122,74 @@
             </objects>
             <point key="canvasLocation" x="144.92753623188406" y="37.5"/>
         </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="0WD-RT-3jK">
+            <objects>
+                <viewController id="JGg-lb-NIz" customClass="MovieDetailsViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9f-9y-b3o" customClass="MovieDe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7N-l9-N2P">
+                                <rect key="frame" x="0.0" y="88" width="414" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EMq-Dq-uGq">
+                                <rect key="frame" x="20" y="224" width="123" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG6-Px-bwW">
+                                <rect key="frame" x="147" y="297" width="215" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84i-9A-T0g">
+                                <rect key="frame" x="20" y="458" width="374" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <viewLayoutGuide key="safeArea" id="drR-mN-o0P"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oFW-AA-V7i"/>
+                    <connections>
+                        <outlet property="backdropView" destination="X7N-l9-N2P" id="Cze-Fm-eCJ"/>
+                        <outlet property="posterView" destination="EMq-Dq-uGq" id="L9B-an-sa3"/>
+                        <outlet property="synopsisLabal" destination="84i-9A-T0g" id="kXD-63-6HH"/>
+                        <outlet property="titleLabel" destination="VG6-Px-bwW" id="h2g-5K-QNZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="woq-OW-7jP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="1578"/>
+        </scene>
+        <!--Superhero-->
+        <scene sceneID="5sJ-fi-vyp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HjE-aA-8fK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="RFb-JI-oWv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ces-Si-71l">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HDE-HL-o0Q" kind="relationship" relationship="rootViewController" id="XqQ-Cb-HTp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFQ-WX-I39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153.6231884057972" y="37.5"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="now_playing_tabbar_item" width="21" height="21"/>
+        <image name="superhero_tabbar_item" width="21" height="23"/>
+    </resources>
 </document>
